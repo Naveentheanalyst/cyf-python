@@ -8,18 +8,18 @@
 <style>
 /* ─── VARIABLES ─── */
 :root {
-  --white:   #ffffff;
-  --bg:      #f5f5f7;
-  --bg2:     #fafafa;
-  --text:    #1d1d1f;
-  --text2:   #515154;
-  --text3:   #86868b;
-  --sep:     rgba(0,0,0,0.08);
-  --gold:    #b06b00;          /* text gold on light bg */
+  --white:   #1c1c22;
+  --bg:      #111114;
+  --bg2:     #18181d;
+  --text:    #f0f0f3;
+  --text2:   #a0a0aa;
+  --text3:   #68686e;
+  --sep:     rgba(255,255,255,0.09);
+  --gold:    #f0b429;          /* text gold on dark bg */
   --gold-btn:#f0b429;          /* button fill */
   --gold-dim:rgba(240,180,41,0.12);
   --gold-bdr:rgba(240,180,41,0.35);
-  --blue:    #0071e3;          /* Apple link/badge blue */
+  --blue:    #f0b429;          /* Apple link/badge blue */
   --red:     #ff3b30;
   --green:   #30d158;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
@@ -28,15 +28,15 @@
           "Cascadia Code", Menlo, monospace;
   --r: 18px;
   --r-sm: 12px;
-  --shadow: 0 2px 20px rgba(0,0,0,0.06);
-  --shadow-md: 0 8px 40px rgba(0,0,0,0.10);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.13);
+  --shadow: 0 2px 20px rgba(0,0,0,0.35);
+  --shadow-md: 0 8px 40px rgba(0,0,0,0.45);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.55);
 }
 
 /* ─── RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 17px; }
-body { font-family: var(--font); color: var(--text); background: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font); color: var(--text); background: var(--bg); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
@@ -56,23 +56,24 @@ img { display: block; max-width: 100%; }
 
 /* ─── TOP BANNER ─── */
 .top-banner {
-  background: var(--text);
-  color: #f5f5f7;
+  background: #c8880d;
+  color: #111;
   text-align: center;
-  padding: 10px 20px;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  padding: 22px 24px;
+  font-size: clamp(16px, 4vw, 22px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
   line-height: 1.45;
 }
-.top-banner strong { color: var(--gold-btn); font-weight: 600; }
+.top-banner strong { color: #111; font-weight: 900; }
+.top-banner s { color: rgba(0,0,0,0.45); font-weight: 700; }
 
 /* ─── NAV ─── */
 .nav {
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(255,255,255,0.82);
+  background: rgba(17,17,20,0.92);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid var(--sep);
@@ -131,7 +132,7 @@ img { display: block; max-width: 100%; }
   font-size: 13px;
   font-weight: 500;
   background: var(--gold-btn);
-  color: #1d1d1f;
+  color: #111;
   padding: 7px 18px;
   border-radius: 100px;
   transition: opacity 0.2s, transform 0.2s;
@@ -191,18 +192,19 @@ img { display: block; max-width: 100%; }
 }
 .hero-badge {
   position: absolute;
-  background: #ffffff;
+  background: var(--bg2);
   border-radius: 14px;
   padding: 12px 18px;
   box-shadow: 0 10px 32px rgba(0,0,0,0.45);
   z-index: 2;
   min-width: 150px;
+  border: 1px solid var(--sep);
 }
 .hero-badge-num {
   display: block;
   font-size: 22px;
   font-weight: 800;
-  color: #0d0d11;
+  color: var(--text);
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
@@ -366,7 +368,7 @@ img { display: block; max-width: 100%; }
 /* shared btn kept for nav */
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold-btn); color: #1d1d1f;
+  background: var(--gold-btn); color: #111;
   font-size: 16px; font-weight: 600; padding: 14px 30px;
   border-radius: 100px;
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -414,7 +416,7 @@ img { display: block; max-width: 100%; }
   box-shadow: var(--shadow);
 }
 .stat-cell {
-  background: var(--white);
+  background: var(--bg2);
   padding: 44px 24px;
   text-align: center;
 }
@@ -430,6 +432,84 @@ img { display: block; max-width: 100%; }
 .stat-num span { color: var(--blue); }
 .stat-lbl { font-size: 14px; color: var(--text3); font-weight: 400; }
 
+/* ─── STUDENT OUTCOMES STRIP ─── */
+.outcomes-strip {
+  background: #0d0d11;
+  border-top: 1px solid rgba(240,180,41,0.15);
+  border-bottom: 1px solid rgba(240,180,41,0.15);
+  padding: 32px 24px;
+  text-align: center;
+}
+.outcomes-strip-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-btn);
+  margin-bottom: 18px;
+}
+.outcomes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.outcome-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(240,180,41,0.07);
+  border: 1px solid rgba(240,180,41,0.18);
+  border-radius: 100px;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  color: #e0e0e8;
+  font-weight: 500;
+  text-align: left;
+}
+.outcome-pill i {
+  color: var(--gold-btn);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* ─── FIRST STEP BADGE ─── */
+.first-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(240,180,41,0.12);
+  border: 1px solid rgba(240,180,41,0.35);
+  color: #f0b429;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+}
+.first-step-badge strong {
+  color: #f0b429;
+  font-weight: 700;
+}
+
+/* ─── FOR-WHO GOLD BANNER ─── */
+.for-who-banner {
+  background: #d4960f;
+  padding: 56px 28px;
+  text-align: center;
+}
+.for-who-banner p {
+  font-size: clamp(22px, 5.5vw, 32px);
+  font-weight: 800;
+  color: #111;
+  line-height: 1.4;
+  max-width: 640px;
+  margin: 0 auto;
+  letter-spacing: -0.01em;
+}
+
 /* ─── PAIN POINTS ─── */
 .pain-grid {
   display: grid;
@@ -437,7 +517,7 @@ img { display: block; max-width: 100%; }
   gap: 16px;
 }
 .pain-card {
-  background: var(--white);
+  background: var(--bg2);
   border-radius: var(--r);
   padding: 36px 32px;
   box-shadow: var(--shadow);
@@ -446,9 +526,17 @@ img { display: block; max-width: 100%; }
 }
 .pain-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
 .pain-icon {
-  font-size: 32px;
-  margin-bottom: 14px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(240,180,41,0.12);
+  border: 1px solid rgba(240,180,41,0.25);
+  border-radius: 12px;
+  color: var(--gold-btn);
+  font-size: 20px;
+  margin-bottom: 18px;
 }
 .pain-title {
   font-size: 19px;
@@ -535,7 +623,7 @@ img { display: block; max-width: 100%; }
   gap: 16px;
 }
 .outcome-card {
-  background: var(--white);
+  background: var(--bg2);
   border: 1px solid var(--sep);
   border-radius: var(--r);
   padding: 28px 24px;
@@ -574,7 +662,7 @@ img { display: block; max-width: 100%; }
   gap: 16px;
 }
 .mod-card {
-  background: var(--white);
+  background: var(--bg2);
   border-radius: var(--r);
   padding: 34px 30px;
   box-shadow: var(--shadow);
@@ -663,7 +751,7 @@ img { display: block; max-width: 100%; }
   flex-shrink: 0;
   width: 52px;
   height: 52px;
-  background: var(--white);
+  background: var(--bg);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -724,7 +812,7 @@ img { display: block; max-width: 100%; }
 @keyframes mRight { from { transform: translateX(-50%);  } to { transform: translateX(0);    } }
 
 .t-card {
-  background: var(--white);
+  background: var(--bg2);
   border-radius: var(--r);
   padding: 24px 22px;
   width: 290px;
@@ -763,7 +851,7 @@ img { display: block; max-width: 100%; }
 
 /* ─── GUARANTEE ─── */
 .guarantee-card {
-  background: var(--white);
+  background: var(--bg2);
   border-radius: var(--r);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--sep);
@@ -779,7 +867,7 @@ img { display: block; max-width: 100%; }
 /* ─── FAQ ─── */
 .faq-list { max-width: 660px; margin: 0 auto; display: flex; flex-direction: column; gap: 2px; }
 .faq-item {
-  background: var(--white);
+  background: var(--bg2);
   border-radius: 0;
   border-bottom: 1px solid var(--sep);
   overflow: hidden;
@@ -819,7 +907,7 @@ img { display: block; max-width: 100%; }
 
 /* ─── PRICING ─── */
 .pricing-card {
-  background: var(--white);
+  background: var(--bg2);
   border-radius: var(--r);
   box-shadow: var(--shadow-lg);
   border: 1.5px solid rgba(240,180,41,0.4);
@@ -858,7 +946,7 @@ img { display: block; max-width: 100%; }
   gap: 9px;
   width: 100%;
   background: var(--gold-btn);
-  color: #1d1d1f;
+  color: #111;
   font-size: 17px;
   font-weight: 700;
   padding: 18px;
@@ -877,40 +965,72 @@ img { display: block; max-width: 100%; }
   bottom: 0; left: 0; right: 0;
   transform: translateY(100%);
   transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  z-index: 999;
 }
 .float-bar.visible { transform: translateY(0); }
 .float-bar {
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-top: 1px solid var(--sep);
-  padding: 12px 24px;
+  background: #111;
+  border-top: 1px solid rgba(240,180,41,0.15);
+  padding: 14px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  z-index: 999;
 }
-.fb-price { display: flex; align-items: baseline; gap: 10px; }
-.fb-was { font-size: 15px; color: var(--text3); text-decoration: line-through; }
-.fb-now { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
-.fb-cta {
-  background: var(--gold-btn);
-  color: #1d1d1f;
-  font-size: 15px;
+.fb-left { display: flex; flex-direction: column; gap: 2px; }
+.fb-urgency {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
   font-weight: 600;
-  padding: 11px 26px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.blink-num {
+  color: #ff6b6b;
+  animation: blink-text 1s step-start infinite;
+}
+.seats-txt { color: #ffffff; }
+@keyframes blink-text {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.fb-price { display: flex; align-items: center; gap: 12px; }
+.fb-now {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #f0b429;
+  line-height: 1;
+}
+.fb-was {
+  font-size: 16px;
+  color: rgba(240,180,41,0.45);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+.fb-cta {
+  background: #f0b429;
+  color: #111;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 28px;
   border-radius: 100px;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(240,180,41,0.3);
-  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 0 20px rgba(240,180,41,0.45), 0 4px 12px rgba(240,180,41,0.25);
+  transition: box-shadow 0.2s, transform 0.2s;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   white-space: nowrap;
   flex-shrink: 0;
+  letter-spacing: 0.01em;
 }
-.fb-cta:hover { opacity: 0.88; transform: scale(1.02); }
+.fb-cta:hover {
+  box-shadow: 0 0 32px rgba(240,180,41,0.65), 0 6px 18px rgba(240,180,41,0.35);
+  transform: scale(1.02);
+}
 
 /* ─── FOOTER ─── */
 .footer {
@@ -1009,7 +1129,7 @@ img { display: block; max-width: 100%; }
 .free-course-card {
   display: block;
   text-decoration: none;
-  background: var(--white);
+  background: var(--bg2);
   border-radius: var(--r);
   border: 1px solid var(--sep);
   overflow: hidden;
@@ -1191,22 +1311,22 @@ img { display: block; max-width: 100%; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #25d366;
-  color: #fff;
+  background: var(--gold-btn);
+  color: #111;
   font-size: 16px;
   font-weight: 700;
   padding: 16px 36px;
   border-radius: 100px;
   text-decoration: none;
-  box-shadow: 0 6px 24px rgba(37,211,102,0.30);
+  box-shadow: 0 6px 24px rgba(240,180,41,0.4);
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   letter-spacing: -0.01em;
 }
 .wa-cta-btn:hover {
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(37,211,102,0.40);
-  color: #fff;
+  box-shadow: 0 10px 32px rgba(240,180,41,0.4);
+  color: #111;
   text-decoration: none;
 }
 .wa-cta-btn i { font-size: 18px; }
@@ -1234,18 +1354,16 @@ img { display: block; max-width: 100%; }
   .section { padding: 70px 0; }
   .ba-cell { padding: 12px 14px; font-size: 13.5px; }
   .ba-head-cell { padding: 14px 14px; font-size: 13.5px; }
-  /* mobile float bar: single full-width WhatsApp button */
-  .float-bar { padding: 12px 16px; background: rgba(255,255,255,0.97); }
-  .fb-price { display: none; }
+  /* mobile float bar */
+  .float-bar { padding: 12px 16px; gap: 12px; }
+  .fb-price { display: flex; }
+  .fb-now { font-size: 24px; }
+  .fb-was { font-size: 14px; }
   .fb-cta {
     flex: 1;
     justify-content: center;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 14px;
-    border-radius: 12px;
-    background: #25d366;
-    box-shadow: 0 4px 16px rgba(37,211,102,0.30);
+    font-size: 15px;
+    padding: 13px 16px;
   }
   /* curriculum & trainer breathing room */
   .mod-card { padding: 26px 20px; }
@@ -1262,8 +1380,7 @@ img { display: block; max-width: 100%; }
 
 <!-- ── TOP BANNER ── -->
 <div class="top-banner">
-  <span class="pulse-dot" style="margin-right:8px;vertical-align:middle"></span>
-  <strong>Only 11 seats left</strong> for the next live batch — <strong>₹13,000 → ₹8,000</strong> · Offer closes when seats fill up
+  For Students, Working Professionals &amp; Career Switchers Who Want to Master Python for Data Analysis and <strong>Land Their Dream Job</strong>
 </div>
 
 <!-- ── NAV ── -->
@@ -1316,6 +1433,12 @@ img { display: block; max-width: 100%; }
       <!-- RIGHT: Content -->
       <div class="hero-right apple-fade">
 
+        <!-- First Step Badge -->
+        <div class="first-step-badge">
+          <span class="fsb-dot">🚀</span>
+          Your First Step to <strong>AI · ML · Data Science</strong>
+        </div>
+
         <!-- Meta row -->
         <div class="hero-meta">
           <div class="hero-meta-item">
@@ -1336,7 +1459,6 @@ img { display: block; max-width: 100%; }
 
         <!-- Info grid -->
         <div class="hero-info-grid">
-          <div class="hero-info-item"><i class="fas fa-bolt"></i><span>Next Batch Starts Soon</span></div>
           <div class="hero-info-item"><i class="fas fa-laptop"></i><span>Live Online Classes</span></div>
           <div class="hero-info-item"><i class="fas fa-language"></i><span>Tamil + English</span></div>
           <div class="hero-info-item"><i class="fas fa-calendar-week"></i><span>Weekday Batch</span></div>
@@ -1346,7 +1468,7 @@ img { display: block; max-width: 100%; }
 
         <!-- Headline -->
         <p class="hero-headline">
-          Why This Python for Data Analysis Cohort Can Change the Way You Work With Data:
+          Master Python for Data Analysis in 8 Weeks — <span style="color:var(--gold-btn)">With Real Projects & Live Guidance</span>
         </p>
 
         <!-- Checklist -->
@@ -1375,11 +1497,6 @@ img { display: block; max-width: 100%; }
           Yes! I'm Ready to Learn Python →
         </a>
 
-        <!-- Trust -->
-        <div class="hero-trust">
-          <span class="stars">★</span>
-          Trusted by <strong style="color:#f5f5f7">&nbsp;7,000+&nbsp;</strong> Students across 20+ companies &amp; 15+ colleges
-        </div>
 
       </div>
     </div>
@@ -1410,6 +1527,11 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
+<!-- ── GOLD FOR-WHO BANNER ── -->
+<div class="for-who-banner apple-fade">
+  <p>If You've Tried Learning Python Before and Quit — <strong>This Cohort Is Built for You</strong></p>
+</div>
+
 <!-- ── PAIN POINTS ── -->
 <section class="section">
   <div class="container">
@@ -1420,7 +1542,7 @@ img { display: block; max-width: 100%; }
     <div class="pain-grid">
 
       <div class="pain-card apple-fade">
-        <span class="pain-icon">📊</span>
+        <span class="pain-icon"><i class="fas fa-chart-bar"></i></span>
         <div class="pain-title">You Know Python Syntax But Can't Analyse Real Data</div>
         <ul class="pain-list">
           <li>You've done tutorials but freeze when facing a messy CSV</li>
@@ -1428,11 +1550,10 @@ img { display: block; max-width: 100%; }
           <li>You've never done a real EDA from scratch</li>
           <li>You watch YouTube videos but nothing sticks practically</li>
         </ul>
-        <div class="pain-cta-line">You don't need more syntax videos — you need structured, project-driven practice.</div>
       </div>
 
       <div class="pain-card apple-fade">
-        <span class="pain-icon">🎓</span>
+        <span class="pain-icon"><i class="fas fa-graduation-cap"></i></span>
         <div class="pain-title">You're a Student Preparing for Placements</div>
         <ul class="pain-list">
           <li>Companies ask for Python + data skills in every JD</li>
@@ -1440,11 +1561,10 @@ img { display: block; max-width: 100%; }
           <li>You're not sure what NumPy, Pandas, or Matplotlib even do</li>
           <li>Your college taught theory but zero practical data work</li>
         </ul>
-        <div class="pain-cta-line">You don't need another textbook — you need real hands-on projects.</div>
       </div>
 
       <div class="pain-card apple-fade">
-        <span class="pain-icon">💼</span>
+        <span class="pain-icon"><i class="fas fa-briefcase"></i></span>
         <div class="pain-title">You're a Working Professional Trying to Upskill</div>
         <ul class="pain-list">
           <li>You work with Excel but want to move to Python</li>
@@ -1452,18 +1572,16 @@ img { display: block; max-width: 100%; }
           <li>You've started Python 3 times and never finished</li>
           <li>You need structured learning that fits your schedule</li>
         </ul>
-        <div class="pain-cta-line">You don't need more willpower — you need the right teacher and the right structure.</div>
       </div>
 
       <div class="pain-card apple-fade">
-        <span class="pain-icon">🚀</span>
+        <span class="pain-icon"><i class="fas fa-rocket"></i></span>
         <div class="pain-title">You're Ready to Build Your Data Portfolio</div>
         <ul class="pain-list">
           <li>You want projects that actually impress interviewers</li>
           <li>You want to understand what the code is doing, not just copy-paste</li>
           <li>You want a mentor who teaches the math behind the libraries</li>
         </ul>
-        <div class="pain-cta-line">You don't need to figure it out alone — join a cohort built for results.</div>
       </div>
 
     </div>
@@ -1476,7 +1594,7 @@ img { display: block; max-width: 100%; }
   <a href="https://wa.me/917010948304?text=Hi%20Naveen!%20I%20want%20to%20join%20the%20Python%20for%20Data%20Analysis%20cohort." target="_blank" rel="noopener" class="wa-cta-btn">
     <i class="fab fa-whatsapp"></i> Join the Cohort via WhatsApp
   </a>
-  <span class="section-cta-note">Usually responds within 1 hour · Tamil &amp; English</span>
+  <span class="section-cta-note">Free to message · No commitment required</span>
 </div>
 
 <!-- ── BEFORE / AFTER ── -->
@@ -1692,18 +1810,11 @@ img { display: block; max-width: 100%; }
         <div class="trainer-role-sm">Founder, CodeYourFuture<br>M.Sc. Mathematics &nbsp;·&nbsp; M.S. CS (Data Science)</div>
       </div>
       <div class="apple-fade">
-        <h2 class="trainer-h">Naveenraj Subramani</h2>
-        <div class="trainer-sub">Founder, CodeYourFuture<br>M.Sc. Mathematics &nbsp;·&nbsp; M.S. CS (Data Science)</div>
+        <div class="trainer-sub">The Instructor Who Makes Hard Things Simple</div>
         <div class="trainer-bio">
           <p>Naveen didn't build a classroom — he built a community. Over 7,000 students have learned from him across Tamil Nadu's top colleges and corporate training rooms, in both Tamil and English. Not because of credentials, but because of the way he makes hard things feel simple.</p>
           <p>He holds an M.Sc. in Mathematics and an M.S. in Computer Science (Data Science) — but what sets him apart isn't the degrees. It's that he teaches the <em>why</em> behind every line of code. You won't just learn Pandas — you'll understand why it works the way it does.</p>
           <p>His students now work at Mahindra Research Valley, TVS, Yamaha, and leading IT firms. When companies and colleges across Tamil Nadu — including Anna University and Panimalar — need someone who can actually make students care about data, they call Naveen.</p>
-        </div>
-        <div class="trainer-stats-row">
-          <div><span class="t-stat-num">7,000+</span><div class="t-stat-lbl">Students</div></div>
-          <div><span class="t-stat-num">15+</span><div class="t-stat-lbl">Colleges</div></div>
-          <div><span class="t-stat-num">20+</span><div class="t-stat-lbl">Companies</div></div>
-          <div><span class="t-stat-num">4.9/5</span><div class="t-stat-lbl">Rating</div></div>
         </div>
       </div>
     </div>
@@ -1765,6 +1876,16 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
+<!-- ── STUDENT OUTCOMES STRIP ── -->
+<div class="outcomes-strip apple-fade">
+  <div class="outcomes-strip-label">🎯 Real Results from Real Students</div>
+  <div class="outcomes-list">
+    <div class="outcome-pill"><i class="fas fa-building"></i> Karthikeyan R — landed a Data Analyst role at Zoho Corp after completing the cohort</div>
+    <div class="outcome-pill"><i class="fas fa-file-alt"></i> Priya Dharshini M — built 4 EDA projects, cleared interviews at TCS & Infosys</div>
+    <div class="outcome-pill"><i class="fas fa-chart-line"></i> Arunachalam S — switched from Excel to Python, promoted to Senior Analyst at TVS Motors</div>
+  </div>
+</div>
+
 <!-- ── TESTIMONIALS ── -->
 <section class="section section-alt" id="testimonials">
   <div class="container" style="margin-bottom:44px">
@@ -1786,7 +1907,7 @@ img { display: block; max-width: 100%; }
   <a href="https://wa.me/917010948304?text=Hi%20Naveen!%20I%20want%20to%20join%20the%20Python%20for%20Data%20Analysis%20cohort." target="_blank" rel="noopener" class="wa-cta-btn">
     <i class="fab fa-whatsapp"></i> I'm In — Message Naveen Now
   </a>
-  <span class="section-cta-note">100% money-back guarantee within 3 days</span>
+  <span class="section-cta-note">Real results or your money back · No questions asked</span>
 </div>
 
 <!-- ── GUARANTEE ── -->
@@ -1918,7 +2039,7 @@ img { display: block; max-width: 100%; }
       <div class="price-note">One-time payment &nbsp;·&nbsp; Lifetime access to recordings</div>
 
       <a href="https://wa.me/917010948304?text=Hi%20Naveen!%20I%20want%20to%20join%20the%20Python%20for%20Data%20Analysis%20cohort." target="_blank" rel="noopener" class="enroll-btn">
-        <i class="fab fa-whatsapp" style="font-size:19px"></i> Enroll via WhatsApp — Grab My Seat
+        <i class="fab fa-whatsapp" style="font-size:19px"></i> Secure My ₹8,000 Seat Now
       </a>
       <div class="pricing-trust-line">Usually responds within 1 hour &nbsp;·&nbsp; Tamil &amp; English available</div>
     </div>
@@ -1939,15 +2060,15 @@ img { display: block; max-width: 100%; }
 
 <!-- ── FLOATING BAR ── -->
 <div class="float-bar">
-  <div class="fb-price">
-    <div>
-      <span class="fb-was">₹13,000</span>
+  <div class="fb-left">
+    <div class="fb-urgency"><span class="pulse-dot"></span> <span class="blink-num">ONLY 11</span> <span class="seats-txt">SEATS LEFT</span></div>
+    <div class="fb-price">
       <span class="fb-now">₹8,000</span>
+      <span class="fb-was">₹13,000</span>
     </div>
-    <div class="fb-seats"><span class="pulse-dot"></span> 11 seats left</div>
   </div>
   <a href="https://wa.me/917010948304?text=Hi%20Naveen!%20I%20want%20to%20join%20the%20Python%20for%20Data%20Analysis%20cohort." target="_blank" rel="noopener" class="fb-cta">
-    <i class="fab fa-whatsapp"></i> Grab My Seat
+    Grab My Seat →
   </a>
 </div>
 
@@ -2050,12 +2171,8 @@ document.querySelectorAll('.faq-btn').forEach(btn => {
   }
 })();
 
-/* FLOAT BAR — show after hero scrolls out */
-const floatBar = document.querySelector('.float-bar');
-const heroSection = document.querySelector('.hero');
-new IntersectionObserver(([e]) => {
-  floatBar.classList.toggle('visible', !e.isIntersecting);
-}, { threshold: 0 }).observe(heroSection);
+/* FLOAT BAR — always visible */
+document.querySelector('.float-bar').classList.add('visible');
 
 /* INTERSECTION OBSERVER FADE */
 const io = new IntersectionObserver(entries => {
