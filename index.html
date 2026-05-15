@@ -1109,6 +1109,57 @@ img { display: block; max-width: 100%; }
   margin-bottom: 18px;
 }
 
+/* ─── BROCHURE STRIP ─── */
+.brochure-strip {
+  background: linear-gradient(135deg, #18181d 0%, #1e1e25 100%);
+  border-top: 1px solid rgba(240,180,41,0.2);
+  border-bottom: 1px solid rgba(240,180,41,0.2);
+  padding: 28px 24px;
+}
+.brochure-strip-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.brochure-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.brochure-icon {
+  font-size: 32px;
+  color: #e53e3e;
+}
+.brochure-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.brochure-sub {
+  font-size: 13px;
+  color: var(--text3);
+}
+.brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-btn);
+  color: #111;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.brochure-btn:hover { opacity: 0.88; transform: scale(1.02); }
+
 /* ─── FOOTER ─── */
 .footer {
   background: var(--bg);
@@ -2056,6 +2107,22 @@ img { display: block; max-width: 100%; }
     <i class="fab fa-whatsapp"></i> I'm In — Message Naveen Now
   </a>
   <span class="section-cta-note">Real results or your money back · No questions asked</span>
+</div>
+
+<!-- ── BROCHURE DOWNLOAD ── -->
+<div class="brochure-strip apple-fade">
+  <div class="brochure-strip-inner">
+    <div class="brochure-info">
+      <i class="fas fa-file-pdf brochure-icon"></i>
+      <div>
+        <div class="brochure-title">Download Course Brochure</div>
+        <div class="brochure-sub">4-page PDF · Curriculum · Pricing · Instructor details</div>
+      </div>
+    </div>
+    <a href="Python_DataAnalysis_Brochure.pdf" download class="brochure-btn">
+      <i class="fas fa-download"></i> Download Free PDF
+    </a>
+  </div>
 </div>
 
 <!-- ── GUARANTEE ── -->
